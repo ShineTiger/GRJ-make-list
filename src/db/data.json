@@ -1,0 +1,12 @@
+{
+  "list": [
+    { "id": 1, "product": "소주" },
+    { "id": 2, "product": "맥주" },
+    { "id": 3, "product": "샴페인" }
+  ],
+  "item": [
+    { "id": 1, "image": "유알엘어쩌구", "content":"소주시러" },
+    { "id": 2, "image": "유알엘어쩌구", "content":"맥주조아" },
+    { "id": 3, "image": "유알엘어쩌구", "content":"샴페인몰라" }
+  ]
+}

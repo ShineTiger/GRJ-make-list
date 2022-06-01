@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const AddItem = () => {
+const Modal = ({isView}) => {
   const [state, setState] = useState({
     productName: "",
     image: "",
@@ -14,14 +14,20 @@ const AddItem = () => {
     });
   };
 
+  //onCreate(state.productName,state.image,state.content)
+
   return (
-    <div>
-      <input name="productName" value={state.name} onChange={handleInput}></input>
+    <div id="modal-bg">
+      <form id="modal">
+      <span id="close-btn">X</span>
+      <label for="name">이름</label>
+      <input name="productName" value={state.productName} onChange={handleInput}></input>
       <input name="image" value={state.image} onChange={handleInput}></input>
       <input name="content" value={state.content} onChange={handleInput}></input>
-      <button>저장</button>
+      <button onClick>저장</button>
+      </form>
     </div>
   );
 };
 
-export default AddItem;
+export default Modal;

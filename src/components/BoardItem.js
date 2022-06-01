@@ -1,24 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, {} from "react";
 
-const BoardItem = () => {
-  const [itemData, setItemData] = useState([]);
-
-  useEffect(()=> {
-    fetch("http://localhost:3001/item")
-    .then(res => {
-      return res.json();
-    })
-    .then(item => {
-      setItemData(item)
-    });
-  }, []);
+const BoardItem = ({itemInfo}) => {
+  
   
     return(
         <section className="cards">
-          {itemData.map(item => (
-            <div className="card" key={item.id}>
+          {itemInfo.map(i => (
+            <div className="card" key={i.id}>
               
-              <span>{item.content}</span>
+              <span>{i.content}</span>
             </div>
           ))}
       </section>

@@ -1,23 +1,21 @@
-import React, { useEffect, useState } from "react";
-
-const Nav = () => {
-  const [navData, setNavData] = useState([]);
-
-  useEffect(()=> {
-    fetch("http://localhost:3001/list")
-    .then(res => {
-      return res.json();
-    })
-    .then(item => {
-      setNavData(item)
-    });
-  }, []);
+import React, { useState } from "react";
+import Modal from "./Modal";
 
 
+const Nav = ({itemProductName}) => {
+  const [isView, setIsView] = useState(false);
+
+  const view = () => {
+    setIsView(true);
+    if (isView===true){
+      return <Modal style={{display:"block"}} isView={isView}/>
+    }
+  }
+  
     return(
         <nav>
-          <button>추가</button>
-        <ul>{navData.map((nav) => (
+          <button onClick={view}>추가</button>
+        <ul>{itemProductName.map((nav) => (
           <li key={nav.id}>{nav.product}</li>
         ))}</ul>
       </nav>

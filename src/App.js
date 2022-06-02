@@ -1,21 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import Modal from "./components/Modal";
 import Nav from "./components/Nav";
 import BoardItem from "./components/BoardItem";
+import useFetch from "./hooks/useFetch";
 
 const App = () => {
-  const [itemData, setItemData] = useState([]);
+  const what = useFetch("http://localhost:3001/item")
 
-  useEffect(()=> {
-    fetch("http://localhost:3001/item")
-    .then(res => {
-      return res.json();
-    })
-    .then(item => {
-      setItemData(item)
-    });
-  }, []);
+  
   
   const onCreate = (product, image, content) => {
     const newItem = {
@@ -24,6 +16,7 @@ const App = () => {
       content
     };
     setItemData([newItem, ...itemData])
+    fetch()
   }
 
   

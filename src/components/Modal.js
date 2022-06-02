@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Modal = ({isView}) => {
+const Modal = ({handleBtnModal}) => {
   const [state, setState] = useState({
     productName: "",
     image: "",
@@ -17,9 +17,9 @@ const Modal = ({isView}) => {
   //onCreate(state.productName,state.image,state.content)
 
   return (
-    <div id="modal-bg">
+    <div id="modal-bg" >
       <form id="modal">
-      <span id="close-btn">X</span>
+      <span id="close-btn" onClick={handleBtnModal}>X</span>
       <label for="name">이름</label>
       <input name="productName" value={state.productName} onChange={handleInput}></input>
       <input name="image" value={state.image} onChange={handleInput}></input>

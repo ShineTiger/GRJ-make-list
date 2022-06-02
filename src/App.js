@@ -25,13 +25,14 @@ const App = () => {
     };
     setItemData([newItem, ...itemData])
   }
+
   
 
   return (
     <div className="App">
       <header>고량주</header>
       <main>
-        <Nav itemProductName={itemData}></Nav>
+        <Nav itemProductName={itemData} onCreate={onCreate}></Nav>
         <BoardItem itemInfo={itemData} />
       </main>
     </div>

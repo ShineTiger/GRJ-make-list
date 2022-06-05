@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Modal from "./Modal";
 
 
-const Nav = ({itemProductName,onCreate}) => {
+const Nav = ({itemProductName,useFetch}) => {
   const [isView, setIsView] = useState(false);
 
   const view = () => {
@@ -17,7 +17,7 @@ const Nav = ({itemProductName,onCreate}) => {
     return(
         <nav>
           <button onClick={view}>추가</button>
-          {isView && <Modal handleBtnModal={handleBtnModal} onCreate={onCreate}/>} 
+          {isView && <Modal handleBtnModal={handleBtnModal} useFetch={useFetch}/>} 
         <ul>{itemProductName.map((nav) => (
           <li key={nav.id}>{nav.product}</li>
         ))}</ul>

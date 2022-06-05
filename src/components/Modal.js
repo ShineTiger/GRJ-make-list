@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const Modal = ({handleBtnModal}) => {
+const Modal = ({handleBtnModal, useFetch}) => {
   const [state, setState] = useState({
     productName: "",
     image: "",
@@ -13,6 +13,8 @@ const Modal = ({handleBtnModal}) => {
       [e.target.name]: e.target.value,
     });
   };
+
+  
 
   //onCreate(state.productName,state.image,state.content)
 

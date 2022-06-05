@@ -2,22 +2,36 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import Nav from "./components/Nav";
 import BoardItem from "./components/BoardItem";
-import useFetch from "./hooks/useFetch";
 
 const App = () => {
-  const what = useFetch("http://localhost:3001/item")
+  const [itemData, setItemData] = useState([]);
 
-  
-  
+  const useFetch = (url) => {
+    useEffect(()=> {
+      fetch("http://localhost:3001/item")
+      .then(res => {
+        return res.json();
+      })
+      .then(item => {
+        setItemData(item)
+      });
+    }, []);
+    return itemData
+  }
+
   const onCreate = (product, image, content) => {
+    
     const newItem = {
       product,
       image,
       content
     };
     setItemData([newItem, ...itemData])
-    fetch()
   }
+
+  // const onSubmit = (e) => {
+  //   e.preventDefault();
+  // }
 
   
 
@@ -26,7 +40,7 @@ const App = () => {
       <header>고량주</header>
       <main>
         <Nav itemProductName={itemData} onCreate={onCreate}></Nav>
-        <BoardItem itemInfo={itemData} />
+        <BoardItem  useFetch={useFetch} />
       </main>
     </div>
   );

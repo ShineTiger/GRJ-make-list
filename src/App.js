@@ -1,22 +1,23 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
+import Modal from "./components/Modal";
 import Nav from "./components/Nav";
 import BoardItem from "./components/BoardItem";
-import useFetch from "./hooks/useFetch";
 
 const App = () => {
-  const what = useFetch("http://localhost:3001/item")
+  const data = [
+    { "id": 1, "product": "소주", "image": "유알엘어쩌구", "content":"소주시러" },
+    { "id": 2, "product": "맥주", "image": "유알엘어쩌구", "content":"맥주조아" },
+    { "id": 3, "product": "샴페인", "image": "유알엘어쩌구", "content":"샴페인몰라" }
+  ];
+
+  const [itemData, setItemData] = useState(data);
+
 
   
-  
-  const onCreate = (product, image, content) => {
-    const newItem = {
-      product,
-      image,
-      content
-    };
-    setItemData([newItem, ...itemData])
-    fetch()
+
+  const onCreate = (item) => {
+    setItemData([...itemData, item])
   }
 
   

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, onCreate } from "react";
 
 const Modal = ({handleBtnModal}) => {
   const [state, setState] = useState({
@@ -14,6 +14,11 @@ const Modal = ({handleBtnModal}) => {
     });
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onCreate(state.productName,state.image,state.content);
+  }
+
   //onCreate(state.productName,state.image,state.content)
 
   return (
@@ -24,7 +29,7 @@ const Modal = ({handleBtnModal}) => {
       <input name="productName" value={state.productName} onChange={handleInput}></input>
       <input name="image" value={state.image} onChange={handleInput}></input>
       <input name="content" value={state.content} onChange={handleInput}></input>
-      <button onClick>저장</button>
+      <button onClick={handleSubmit && handleBtnModal}>저장</button>
       </form>
     </div>
   );

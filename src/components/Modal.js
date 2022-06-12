@@ -1,6 +1,6 @@
-import { useState, onCreate } from "react";
+import { useState } from "react";
 
-const Modal = ({handleBtnModal}) => {
+const Modal = ({ handleBtnModal, handleAddItem }) => {
   const [state, setState] = useState({
     productName: "",
     image: "",
@@ -16,20 +16,22 @@ const Modal = ({handleBtnModal}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onCreate(state.productName,state.image,state.content);
+    // 이부분 수정 필요
+    handleAddItem(state.productName, state.image, state.content );
+    handleBtnModal()
   }
 
   //onCreate(state.productName,state.image,state.content)
 
   return (
     <div id="modal-bg" >
-      <form id="modal">
+      <form id="modal" onSubmit={handleSubmit}>
       <span id="close-btn" onClick={handleBtnModal}>X</span>
-      <label for="name">이름</label>
+      <label htmlFor="name">이름</label>
       <input name="productName" value={state.productName} onChange={handleInput}></input>
       <input name="image" value={state.image} onChange={handleInput}></input>
       <input name="content" value={state.content} onChange={handleInput}></input>
-      <button onClick={handleSubmit && handleBtnModal}>저장</button>
+      <button type="submit">저장</button>
       </form>
     </div>
   );

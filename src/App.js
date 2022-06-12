@@ -16,7 +16,7 @@ const App = () => {
 
   
 
-  const onCreate = (item) => {
+  const handleAddItem = (item) => {
     setItemData([...itemData, item])
   }
 
@@ -26,7 +26,7 @@ const App = () => {
     <div className="App">
       <header>고량주</header>
       <main>
-        <Nav itemProductName={itemData} onCreate={onCreate}></Nav>
+        <Nav itemProductName={itemData} onCreate={handleAddItem}></Nav>
         <BoardItem itemInfo={itemData} />
       </main>
     </div>

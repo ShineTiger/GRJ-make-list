@@ -2,7 +2,7 @@ import React, { useState, onCreate } from "react";
 import Modal from "./Modal";
 
 
-const Nav = ({itemProductName}) => {
+const Nav = ({data}) => {
   const [isView, setIsView] = useState(false);
 
   const view = () => {
@@ -18,7 +18,7 @@ const Nav = ({itemProductName}) => {
         <nav>
           <button onClick={view}>추가</button>
           {isView && <Modal handleBtnModal={handleBtnModal} onCreate={onCreate} />} 
-        <ul>{itemProductName.map((nav) => (
+        <ul>{data.map((nav) => (
           <li key={nav.id}>{nav.product}</li>
         ))}</ul>
       </nav>

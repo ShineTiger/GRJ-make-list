@@ -26,8 +26,8 @@ const App = () => {
     <div className="App">
       <header>고량주</header>
       <main>
-        <Nav itemProductName={itemData} onCreate={handleAddItem}></Nav>
-        <BoardItem itemInfo={itemData} />
+        <Nav data={itemData} onCreate={handleAddItem}></Nav>
+        <BoardItem data={itemData} />
       </main>
     </div>
   );

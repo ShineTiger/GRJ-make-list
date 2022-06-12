@@ -16,6 +16,7 @@ const Modal = ({ handleBtnModal, handleAddItem }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // 이부분 수정 필요
     handleAddItem(state.productName, state.image, state.content );
     handleBtnModal()
   }

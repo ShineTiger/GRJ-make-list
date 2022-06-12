@@ -1,8 +1,8 @@
-import React, { useState, onCreate } from "react";
+import React, { useState } from "react";
 import Modal from "./Modal";
 
 
-const Nav = ({data}) => {
+const Nav = ({data,handleAddItem}) => {
   const [isView, setIsView] = useState(false);
 
   const handleModal = (value) => {
@@ -13,7 +13,7 @@ const Nav = ({data}) => {
     return(
         <nav>
           <button onClick={()=>handleModal(true)}>추가</button>
-          {isView && <Modal handleBtnModal={()=>handleModal(false)} onCreate={onCreate} />} 
+          {isView && <Modal handleBtnModal={()=>handleModal(false)} handleAddItem={handleAddItem} />} 
         <ul>{data.map((nav) => (
           <li key={nav.id}>{nav.product}</li>
         ))}</ul>

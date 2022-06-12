@@ -26,7 +26,7 @@ const App = () => {
     <div className="App">
       <header>고량주</header>
       <main>
-        <Nav data={itemData} onCreate={handleAddItem}></Nav>
+        <Nav data={itemData} handleAddItem={handleAddItem}></Nav>
         <BoardItem data={itemData} />
       </main>
     </div>

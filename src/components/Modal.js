@@ -1,6 +1,6 @@
-import { useState, onCreate } from "react";
+import { useState } from "react";
 
-const Modal = ({handleBtnModal}) => {
+const Modal = ({ handleBtnModal, handleAddItem }) => {
   const [state, setState] = useState({
     productName: "",
     image: "",
@@ -16,7 +16,7 @@ const Modal = ({handleBtnModal}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onCreate(state.productName, state.image, state.content);
+    handleAddItem(state.productName, state.image, state.content );
     handleBtnModal()
   }
 

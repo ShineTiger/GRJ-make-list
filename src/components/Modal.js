@@ -26,7 +26,7 @@ const Modal = ({ handleBtnModal, handleAddItem }) => {
     <div id="modal-bg" >
       <form id="modal" onSubmit={handleSubmit}>
       <span id="close-btn" onClick={handleBtnModal}>X</span>
-      <label for="name">이름</label>
+      <label htmlFor="name">이름</label>
       <input name="productName" value={state.productName} onChange={handleInput}></input>
       <input name="image" value={state.image} onChange={handleInput}></input>
       <input name="content" value={state.content} onChange={handleInput}></input>

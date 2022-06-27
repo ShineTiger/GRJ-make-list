@@ -1,11 +1,11 @@
 import React, {} from "react";
 
-const BoardItem = ({itemInfo}) => {
+const BoardItem = ({data}) => {
   
   
     return(
         <section className="cards">
-          {itemInfo.map(i => (
+          {data.map(i => (
             <div className="card" key={i.id}>             
               <span>{i.content}</span>
             </div>
